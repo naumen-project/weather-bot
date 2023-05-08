@@ -37,7 +37,7 @@ public class CitySelectionHandler implements MessageHandler{
                 userService.updateUserState(message.getChatId(), this.getOutputType());
 
                 messageToSend.setText(String.format("%s, твой город -- %s",
-                        UserState.COMPLETE_REGISTRATION.getTitle(), message.getText()));
+                        UserState.COMPLETE_REGISTRATION.getTitle(), locationInfo.getLocationName()));
             } catch (Exception e) {
                 log.info(e.getMessage());
                 messageToSend.setText("Не могу распарсить твою локацию, попробуй ввести город вручную или выбрать из списка.");
