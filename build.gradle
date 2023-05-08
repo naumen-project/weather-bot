@@ -48,10 +48,15 @@ task printVersionName {
 task buildDocker(type: Exec) {
     dependsOn build
     workingDir "$projectDir"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "nobodyknowsdotcom/weatherfy:${project.version}", "-f", "$projectDir/src/main/docker/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.',
+            '-t', "nobodyknowsdotcom/weatherfy:${project.version}",
+            '-t', 'nobodyknowsdotcom/weatherfy:latest',
+            '-f', "$projectDir/src/main/docker/Dockerfile"
 }
 
 task pushDocker(type: Exec) {
     workingDir "$projectDir"
     commandLine 'docker', 'push', "nobodyknowsdotcom/weatherfy:${project.version}"
+    commandLine 'docker', 'push', 'nobodyknowsdotcom/weatherfy', '-a'
 }
+
