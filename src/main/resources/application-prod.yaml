@@ -14,4 +14,4 @@ bot:
   webhook-path: ${BOT_WEBHOOK_PATH}
   token: ${BOT_TOKEN}
   api-quota: 10
-  schedule-cron: 0 0 6-21/3 * * *
+  schedule-cron: 0 0 9 * * *
