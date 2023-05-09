@@ -13,5 +13,5 @@ spring:
 bot:
   webhook-path: ${BOT_WEBHOOK_PATH}
   token: ${BOT_TOKEN}
-  api-quota: 10
-  schedule-cron: 0 0 9 * * *
+  api-quota: 20
+  schedule-cron: 0 0 8 * * *
