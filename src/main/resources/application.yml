@@ -1,5 +1,6 @@
 server:
-  weather-cache-evict-cron: 0 0 3 * * *
+  weather-cache-evict-cron: 0 0 0/3 * * ?
+  api-quota-refresh-cron: 0 0 6 * * ?
   port: 8000
 
 bot:
