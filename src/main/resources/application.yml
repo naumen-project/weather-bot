@@ -1,11 +1,12 @@
 server:
-  weather-cache-evict-cron: 0 0 3 * * *
+  weather-cache-evict-cron: 0 0 0/3 * * ?
+  quota-refresh-cron: 0 13 17 * * ?
   port: 8000
 
 bot:
-  webhook-path: https://f0c2-194-226-248-0.ngrok-free.app
-  token: 6059530887:AAFHPmDyT_obKiD-uI2TSUMGnRzSV-n11PE
-  name: Weatherfy
+  webhook-path: https://c939-193-168-176-146.ngrok-free.app
+  token: 6049421309:AAFcsBO-Fa5SX62QCSpaqu82wO4ff-BJiMk
+  name: Weatherfy dev
   most-popular-cities: Екатеринбург,Москва,Санкт Петербург,Казань,Краснодар
 
 weatherApi:

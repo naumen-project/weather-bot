@@ -8,8 +8,10 @@ import com.example.weatherbot.model.UserStateEntity;
 import com.example.weatherbot.repository.UserRepository;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -66,5 +68,11 @@ public class UserService {
     }
     public Optional<User> findUserByChatId(Long chatId){
         return userRepository.findByChatId(chatId);
+    }
+    @Scheduled(cron = "${server.quota-refresh-cron}")
+    public void refreshAllUsersApiQuota(){
+        List<User> users = userRepository.findAll();
+        users.forEach(user -> user.setApiCalls(0));
+        log.info("Refreshed all users api quota");
     }
 }
