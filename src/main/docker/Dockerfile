@@ -9,8 +9,11 @@ ENV DB_HOST $DB_HOST
 ENV DB_PORT $DB_PORT
 ENV DB_NAME $DB_NAME
 
+RUN apk add --no-cache tzdata
+ENV TZ=Europe/Moscow
+
 COPY build/libs/*.jar /app/app.jar
 WORKDIR /app
 
 EXPOSE 8000
-ENTRYPOINT exec java -jar -Dspring.profiles.active=prod /app/app.jar
+ENTRYPOINT exec java -jar -Dspring.profiles.active=dev /app/app.jar
