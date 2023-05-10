@@ -16,4 +16,4 @@ COPY build/libs/*.jar /app/app.jar
 WORKDIR /app
 
 EXPOSE 8000
-ENTRYPOINT exec java -jar -Dspring.profiles.active=dev /app/app.jar
+ENTRYPOINT exec java -jar -Dspring.profiles.active=prod /app/app.jar
