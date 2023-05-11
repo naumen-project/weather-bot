@@ -73,6 +73,7 @@ public class UserService {
     public void refreshApiQuotaForAllUsers(){
         List<User> users = userRepository.findAll();
         users.forEach(user -> user.setApiCalls(0));
+        userRepository.saveAll(users);
         log.info("Refreshed all users api quota");
     }
 }
