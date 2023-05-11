@@ -13,6 +13,9 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Надстройка над адаптером к openweatherapi, фильтрующая и обрабатывающая ответы от openweatherapi.
+ */
 @Service
 @Slf4j
 public class WeatherService {

@@ -9,6 +9,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
+/**
+ * Адаптер для работы с openweatherapi,
+ * общается с openweatherapi с помощью http запросов.
+ */
 @Service
 @Slf4j
 public class WeatherApi {
