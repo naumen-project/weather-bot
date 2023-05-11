@@ -14,6 +14,9 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.Optional;
 
+/**
+ * Разбирает входящие запросы от пользователя, находит нужный обработчик
+ */
 @Service
 @Slf4j
 public class BotFacade {
@@ -44,6 +47,13 @@ public class BotFacade {
         return replyMessage;
     }
 
+    /**
+     * Находит нужный обработчик для сообщения пользователя.
+     * Если не удалось определить состояние пользователя по имени команды,
+     * то состояние берется из базы.
+     * @param message Сообщение от пользователя
+     * @return Ответ на сообщение
+     */
     private SendMessage handleMessage(Message message){
         String inputMessage = message.getText();
         UserState userState;
@@ -64,6 +74,12 @@ public class BotFacade {
         return userStateContext.processInputMessage(message, userState);
     }
 
+    /**
+     * Возвращает состояние пользователя из БД.
+     * Если у пользователя нет состояния, ему будет назначено состояние START.
+     * @param chadId id пользователя
+     * @return Состояние пользователя
+     */
     private UserState getUserStateByUserIdOrSetDefault(Long chadId) {
         UserState userState;
         Optional<User> optionalUser = userService.findUserByChatId(chadId);

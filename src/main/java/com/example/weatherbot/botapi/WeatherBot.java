@@ -14,6 +14,10 @@ import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageTe
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+/**
+ * Инстанс бота.
+ * Для общения с телегой использует вебхук.
+ */
 @Service
 @Slf4j
 public class WeatherBot extends TelegramWebhookBot {

@@ -14,6 +14,11 @@ import java.util.List;
 public class InlineKeyboardFactory {
     @Value("#{'${bot.most-popular-cities}'.split(',')}")
     private List<String> cities;
+
+    /**
+     * Создает и возвращает InlineKeyboardMarkup с самыми популярными городами.
+     * @return Список популярных городов в виде кнопок
+     */
     public InlineKeyboardMarkup getPopularCitiesInlineKeyboard(){
         InlineKeyboardMarkup markup = new InlineKeyboardMarkup();
 
@@ -24,6 +29,13 @@ public class InlineKeyboardFactory {
 
         return markup;
     }
+
+    /**
+     * Работает со списком самых популярных городов,
+     * устанавливает чекбокс напротив указанного города.
+     * @param city Название города, напротив которого нужно установить чекбокс
+     * @return Список популярных городов в виде кнопок с чекбоксом напротив выбранного города
+     */
     public InlineKeyboardMarkup getPopularCitiesWithChosenCity(String city){
         InlineKeyboardMarkup mockMarkup = getPopularCitiesInlineKeyboard();
         List<List<InlineKeyboardButton>> newMarkup = new ArrayList<>();
@@ -60,6 +72,12 @@ public class InlineKeyboardFactory {
         markup.setKeyboard(buttons);
         return markup;
     }
+
+    /**
+     * Создает и возвращает список из одной кнопки с названием города.
+     * @param city Название города, которое будет использоваться в кнопке
+     * @return Список из одной кнопки с названием города
+     */
     private List<InlineKeyboardButton> getCityAsButton(String city){
         List<InlineKeyboardButton> buttonRow = new ArrayList<>();
 
@@ -69,6 +87,11 @@ public class InlineKeyboardFactory {
 
         return buttonRow;
     }
+    /**
+     * Создает и возвращает список из одной кнопки с названием города и чекбоксом напротив него.
+     * @param city Название города, которое будет использоваться в кнопке
+     * @return Список из одной кнопки с названием города с чекбоксом
+     */
     private List<InlineKeyboardButton> getCheckedCityButton(String city){
         List<InlineKeyboardButton> buttonRow = new ArrayList<>();
 
