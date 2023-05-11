@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Работает с сущностью расписания погоды
+ */
 @Service
 public class ForecastScheduleService {
     private final ForecastScheduleRepository forecastScheduleRepository;

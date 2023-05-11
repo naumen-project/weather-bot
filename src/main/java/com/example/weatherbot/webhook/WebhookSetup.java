@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Регистрирует адрес вебхука сразу после поднятия контекста
+ * Регистрирует адрес вебхука для telegram сразу после поднятия контекста
  */
 @Component
 @AllArgsConstructor
@@ -22,7 +22,6 @@ public class WebhookSetup {
     @SneakyThrows
     @PostConstruct
     public void registerWebhook(){
-
         URL requestUrl = new URL(String.format("https://api.telegram.org/bot%s/setWebhook?url=%s",
                 botProperties.getToken(),
                 botProperties.getWebhookPath()

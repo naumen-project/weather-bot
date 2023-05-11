@@ -69,10 +69,15 @@ public class UserService {
     public Optional<User> findUserByChatId(Long chatId){
         return userRepository.findByChatId(chatId);
     }
+
+    /**
+     * Сбрасывает обращение к апи для всех пользователей по расписанию
+     */
     @Scheduled(cron = "${server.api-quota-refresh-cron}")
     public void refreshApiQuotaForAllUsers(){
         List<User> users = userRepository.findAll();
         users.forEach(user -> user.setApiCalls(0));
+        userRepository.saveAll(users);
         log.info("Refreshed all users api quota");
     }
 }
