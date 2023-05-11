@@ -7,6 +7,10 @@ import com.example.weatherbot.service.weatherservice.WeatherInfo;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Преттифаер для WeatherInfo и ForecastInfo.
+ * Представляет данные классы в виде строки, удобночитаемой для пользователя.
+ */
 public class ToMessageMapper {
     private ToMessageMapper(){};
     /**
@@ -42,6 +46,11 @@ public class ToMessageMapper {
         return sb.toString();
     }
 
+    /**
+     *
+     * @param weatherInfo
+     * @return
+     */
     public static String weatherInfoToMessage(WeatherInfo weatherInfo){
         StringBuilder sb = new StringBuilder();
 
@@ -88,22 +97,12 @@ public class ToMessageMapper {
         return sb.toString();
     }
 
-    private static String parseWeatherInfoFromForecast(WeatherInfo weatherInfo){
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(unixTimeToDate("dd/MM/yyyy HH:mm", weatherInfo.getDate(), weatherInfo.getTimezone()));
-
-        sb.append(String.format("%s %s %s",
-                getWeatherConditionEmoji(weatherInfo.getConditionId()), weatherInfo.getConditionDescription(), "\n"));
-
-        sb.append(String.format("%s температура %s, ощущается как %s %s",
-                Emoji.TEMPERATURE.getText(), weatherInfo.getTemperature(), weatherInfo.getFeltTemperature(), "\n"));
-
-        sb.append("\n");
-
-        return sb.toString();
-    }
-
+    /**
+     * Преобразует код погоды в Emoji.
+     * Например, для значений 200-299 будет возвращен Emoji.THUNDERSTORM
+     * @param code Код погоды, полученный от openweatherapi
+     * @return Emoji, соответствующий погоде
+     */
     private static String getWeatherConditionEmoji(Integer code){
         int prefix = code/100;
 

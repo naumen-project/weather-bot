@@ -14,11 +14,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Занимается рассылкой прогноза погоды пользователям по расписанию
+ */
 @Service
 @AllArgsConstructor
 @Slf4j
 public class ScheduledForecastSending {
-
     private UserRepository userRepository;
     private WeatherBot weatherBot;
     private WeatherService weatherService;

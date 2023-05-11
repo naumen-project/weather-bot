@@ -10,6 +10,9 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import org.springframework.http.ResponseEntity;
 
+/**
+ * Используется для хранения одного прогноза.
+ */
 @Getter
 @Setter
 @ToString

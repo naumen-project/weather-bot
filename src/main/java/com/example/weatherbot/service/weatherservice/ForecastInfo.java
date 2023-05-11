@@ -12,6 +12,10 @@ import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Используется для хранения прогноза погоды на несколько промежутков времени.
+ * Например, 40 прогнозов с шагом 3 часа.
+ */
 @Getter
 @Setter
 @ToString

@@ -7,16 +7,15 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * OpenApi отдает прогноз на день в виде восьми прогнозов с интервалом три часа,
- * а в них разница между минимальной и максимальной температурой отсутствует
- * (три часа -- слишком короткий промежуток времени, чтобы замерять минимальную и максимальную температуру).
- * Поэтому нужно считать нужные значения среди всех восьми прогнозов, чем и занимается данный класс.
+ * Маппит ForecastInfo в WeatherInfo.
+ * Преобразует много запросов на день с промежутком в n часов в один цельный прогноз на целый день.
  */
 public class ForecastMapper {
     private ForecastMapper(){}
     /**
      * Парсит ForecastInfo в WeatherInfo.
-     * Находит среднюю, минимальную и макисмальную температуру по всем WeatherInfo, находящимся в ForecastInfo
+     * Находит среднюю, минимальную и макисмальную температуру по всем WeatherInfo, находящимся в ForecastInfo.
+     * Присваеет WeatherInfo время заката, рассвета, таймзону и город от ForecastInfo.
      * @param forecastInfo Прогноз, по которому будет составляться WeatherInfo на один день.
      *                     Парсит все значения и находит минимальгную температуру, максимальную и среднюю.
      */
@@ -32,6 +31,11 @@ public class ForecastMapper {
         return result;
     }
 
+    /**
+     * Считает минимальное, максимальное и среднее значение температуры по списку WeatherInfo
+     * @param weatherInfos Список WeatherInfo
+     * @return WeatherInfo с посчитанными минимальной, максимальной и средней температурой
+     */
     public static WeatherInfo calculateMinMaxAvgTemperature(List<WeatherInfo> weatherInfos){
         WeatherInfo result = weatherInfos.get(0);
 
