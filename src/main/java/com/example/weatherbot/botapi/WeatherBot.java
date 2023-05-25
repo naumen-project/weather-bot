@@ -53,7 +53,7 @@ public class WeatherBot extends TelegramWebhookBot {
             execute(message);
         } catch (TelegramApiException e) {
             e.printStackTrace();
-            log.error("cannot execute message {} to {}", message, chatId);
+            log.error("Cannot execute message {} to {}\n It may be caused by user privacy settings.", message, chatId);
         }
     }
 
