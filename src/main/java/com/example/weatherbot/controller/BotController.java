@@ -16,7 +16,7 @@ public class BotController {
     }
 
     @PostMapping(value = "/")
-    public BotApiMethod onUpdateReceived(@RequestBody Update update){
+    public BotApiMethod<?> onUpdateReceived(@RequestBody Update update){
         return weatherBot.onWebhookUpdateReceived(update);
     }
 }
