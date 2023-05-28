@@ -70,6 +70,18 @@ public class UserService {
         return userRepository.findByChatId(chatId);
     }
 
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
+    }
+
+    public void createUser(User user){
+        userRepository.save(user);
+    }
+
+    public void deleteUser(Long id){
+        userRepository.deleteById(id);
+    }
+
     /**
      * Сбрасывает обращение к апи для всех пользователей по расписанию
      */
