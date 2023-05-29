@@ -1,5 +1,6 @@
 package com.example.weatherbot;
 
+import com.example.weatherbot.repository.UserRepository;
 import com.example.weatherbot.weatherapi.WeatherApi;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

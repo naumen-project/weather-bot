@@ -1,5 +1,6 @@
 package com.example.weatherbot;
 
+import com.example.weatherbot.repository.UserRepository;
 import com.example.weatherbot.service.weatherservice.WeatherService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Assertions;
