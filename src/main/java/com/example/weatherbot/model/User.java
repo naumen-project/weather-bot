@@ -1,10 +1,12 @@
 package com.example.weatherbot.model;
 
 import com.example.weatherbot.enums.UserState;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+@Schema(description = "Weather Bot User")
 @Entity
 @Table(name = "weather_users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -17,6 +19,8 @@ public class User {
     @Id
     @Column(name = "user_id")
     Long chatId;
+
+    @Schema(example = "Moscow")
     String city;
     @OneToOne(
             mappedBy = "user",
